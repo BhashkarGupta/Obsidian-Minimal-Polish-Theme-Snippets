@@ -1,0 +1,611 @@
+/* =========================
+   OBSIDIAN DARK THEME CSS
+========================= */
+
+/* =========================
+   TYPOGRAPHY & ACCENT COLORS
+========================= */
+:root {
+  /* Adapted accents for dark mode (brighter for better contrast) */
+  --accent-1: #4dabf7;
+  /* Blue */
+  --accent-2: #51cf66;
+  /* Green */
+  --accent-3: #fcc419;
+  /* Yellow/Orange */
+  --accent-4: #ff8787;
+  /* Red */
+  --accent-5: #b197fc;
+  /* Purple */
+  --border-color: rgba(255, 255, 255, 0.15);
+  --code-bg: rgba(255, 255, 255, 0.05);
+
+  --font-interface: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-text: var(--font-interface);
+}
+
+.markdown-preview-view {
+  font-family: var(--font-text);
+  line-height: 1.6;
+  color: #d1d5db;
+  /* Light gray text for readability */
+  animation: fade-in 0.4s ease-out;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.markdown-source-view {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   SCROLLBARS
+========================= */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3 {
+  text-align: center;
+  font-family: var(--font-interface);
+  letter-spacing: -0.5px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.markdown-preview-view h1:hover,
+.markdown-preview-view h2:hover,
+.markdown-preview-view h3:hover {
+  transform: scale(1.01);
+}
+
+.markdown-preview-view h1 {
+  color: var(--accent-1);
+  font-weight: 900;
+  font-size: 2.2em;
+  border-bottom: 3px solid var(--accent-1);
+  padding-bottom: 8px;
+  margin-bottom: 24px;
+}
+
+.markdown-preview-view h2 {
+  color: var(--accent-2);
+  font-weight: 800;
+  font-size: 1.8em;
+  margin-top: 36px;
+  position: relative;
+}
+
+.markdown-preview-view h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin: 12px auto 0;
+  width: 50%;
+}
+
+.markdown-preview-view h3 {
+  color: var(--accent-5);
+  font-weight: 700;
+  font-size: 1.4em;
+  margin-top: 28px;
+}
+
+/* =========================
+   LINKS
+========================= */
+.markdown-preview-view a {
+  color: var(--accent-1);
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent-1), var(--accent-1));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease;
+  font-weight: 500;
+}
+
+.markdown-preview-view a:hover {
+  background-size: 100% 2px;
+}
+
+/* =========================
+   TAGS
+========================= */
+.markdown-preview-view .tag {
+  background-color: rgba(77, 171, 247, 0.15);
+  color: var(--accent-1);
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-size: 0.85em;
+  border: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.markdown-preview-view .tag:hover {
+  background-color: rgba(77, 171, 247, 0.25);
+  transform: scale(1.05);
+}
+
+/* =========================
+   HIGHLIGHT
+========================= */
+.markdown-preview-view mark {
+  background-color: rgba(252, 196, 25, 0.2);
+  color: #ffc078;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* =========================
+   TABLES
+========================= */
+.markdown-preview-view table {
+  border-collapse: collapse;
+  margin: 24px 0;
+  background: #1a1b1e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 0.95em;
+
+  display: table !important;
+  width: max-content !important;
+  min-width: 100% !important;
+  table-layout: auto !important;
+  white-space: nowrap !important;
+}
+
+.markdown-preview-view table:hover {
+  transform: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.markdown-preview-view th {
+  background-color: var(--accent-1) !important;
+  color: #ffffff !important;
+  font-weight: 800;
+  font-size: 1.1em;
+  padding: 14px;
+  text-align: left;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.markdown-preview-view td {
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 14px;
+  color: #e5e7eb;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.markdown-preview-view tr:hover td {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.markdown-preview-view td code {
+  display: inline-block;
+  margin: 3px 0;
+  white-space: nowrap !important;
+}
+
+.el-table {
+  overflow-x: auto !important;
+  display: block !important;
+  width: 100%;
+}
+
+/* =========================
+   LISTS & CHECKBOXES
+========================= */
+.markdown-preview-view ul li::marker {
+  color: var(--accent-1);
+  font-weight: bold;
+}
+
+.markdown-preview-view ol li::marker {
+  color: var(--accent-2);
+  font-weight: bold;
+}
+
+.markdown-preview-view input[type="checkbox"] {
+  appearance: none;
+  width: 1.2em;
+  height: 1.2em;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  margin-right: 8px;
+  position: relative;
+  top: 3px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.markdown-preview-view input[type="checkbox"]:checked {
+  background-color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+.markdown-preview-view input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid #1a1b1e;
+  /* Dark checkmark */
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* =========================
+   BLOCKQUOTE
+========================= */
+.markdown-preview-view blockquote {
+  border-left: 5px solid var(--accent-5);
+  background: linear-gradient(to right, rgba(177, 151, 252, 0.15), transparent);
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  transition: transform 0.2s ease, border-left-width 0.2s ease;
+}
+
+.markdown-preview-view blockquote:hover {
+  transform: translateX(6px);
+  border-left-width: 8px;
+}
+
+/* =========================
+   CALLOUTS
+========================= */
+.callout {
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  background-color: #1a1b1e;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.callout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.callout[data-callout="info"] {
+  border-left: 5px solid var(--accent-1);
+}
+
+.callout[data-callout="tip"] {
+  border-left: 5px solid var(--accent-2);
+}
+
+.callout[data-callout="warning"] {
+  border-left: 5px solid var(--accent-3);
+}
+
+.callout[data-callout="bug"] {
+  border-left: 5px solid var(--accent-4);
+}
+
+/* =========================
+   IMAGES & MERMAID (HOVER GALLERY)
+========================= */
+
+/* DO NOT force display:block on img */
+.markdown-preview-view img {
+  max-width: 85%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  cursor: zoom-in;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+
+/* Center using wrapper instead */
+.markdown-preview-view .image-embed {
+  text-align: center;
+}
+
+/* Enlarge seamlessly on hover */
+.markdown-preview-view .image-embed img:hover {
+  transform: scale(1.4);
+  z-index: 999;
+  position: relative;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+}
+
+/* Mermaid */
+.markdown-preview-view .mermaid {
+  overflow-x: auto;
+  margin: 20px auto;
+  cursor: zoom-in;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+  border-radius: 10px;
+}
+
+/* Enlarge seamlessly on hover */
+.markdown-preview-view .mermaid:hover {
+  transform: scale(1.4);
+  z-index: 999;
+  position: relative;
+  background-color: #1a1b1e;
+  /* Dark mode friendly overlay bg for diagrams */
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+}
+
+/* IMPORTANT: don't mess with svg display */
+.markdown-preview-view .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================
+   CODE BLOCKS
+========================= */
+.markdown-preview-view pre {
+  background-color: #0d1117 !important;
+  /* GitHub Dark bg */
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 1.2em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  overflow-x: auto !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  word-break: normal !important;
+  max-width: 100%;
+}
+
+.markdown-preview-view pre code {
+  font-size: 0.9em;
+  color: #c9d1d9;
+  /* Standard light gray */
+  line-height: 1.5;
+
+  white-space: pre !important;
+  display: block !important;
+  width: max-content !important;
+  min-width: 100%;
+}
+
+.markdown-preview-view pre {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.markdown-preview-view pre:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   SYNTAX HIGHLIGHTING (PRISM - READING MODE)
+========================= */
+/* Colors adapted for Dark mode / high contrast */
+.markdown-preview-view .token.comment,
+.markdown-preview-view .token.prolog,
+.markdown-preview-view .token.doctype,
+.markdown-preview-view .token.cdata {
+  color: #8b949e !important;
+}
+
+.markdown-preview-view .token.punctuation {
+  color: #c9d1d9 !important;
+}
+
+.markdown-preview-view .token.property,
+.markdown-preview-view .token.tag,
+.markdown-preview-view .token.boolean,
+.markdown-preview-view .token.number,
+.markdown-preview-view .token.constant,
+.markdown-preview-view .token.symbol,
+.markdown-preview-view .token.deleted {
+  color: #79c0ff !important;
+}
+
+.markdown-preview-view .token.selector,
+.markdown-preview-view .token.attr-name,
+.markdown-preview-view .token.string,
+.markdown-preview-view .token.char,
+.markdown-preview-view .token.builtin,
+.markdown-preview-view .token.inserted {
+  color: #a5d6ff !important;
+}
+
+.markdown-preview-view .token.operator,
+.markdown-preview-view .token.entity,
+.markdown-preview-view .token.url,
+.markdown-preview-view .language-css .token.string,
+.markdown-style .token.string {
+  color: #ff7b72 !important;
+}
+
+.markdown-preview-view .token.atrule,
+.markdown-preview-view .token.attr-value,
+.markdown-preview-view .token.keyword {
+  color: #ff7b72 !important;
+}
+
+.markdown-preview-view .token.function {
+  color: #d2a8ff !important;
+}
+
+.markdown-preview-view .token.regex,
+.markdown-preview-view .token.important,
+.markdown-preview-view .token.variable {
+  color: #ffa657 !important;
+}
+
+/* =========================
+   SYNTAX HIGHLIGHTING (CODEMIRROR - LIVE PREVIEW)
+========================= */
+.cm-s-obsidian span.cm-comment,
+.cm-s-obsidian .cm-hmd-codeblock {
+  color: #8b949e !important;
+}
+
+.cm-s-obsidian span.cm-string {
+  color: #a5d6ff !important;
+}
+
+.cm-s-obsidian span.cm-number {
+  color: #79c0ff !important;
+}
+
+.cm-s-obsidian span.cm-keyword {
+  color: #ff7b72 !important;
+}
+
+.cm-s-obsidian span.cm-def {
+  color: #d2a8ff !important;
+}
+
+.cm-s-obsidian span.cm-variable-2,
+.cm-s-obsidian span.cm-variable-3 {
+  color: #ffa657 !important;
+}
+
+.cm-s-obsidian span.cm-operator {
+  color: #ff7b72 !important;
+}
+
+.cm-s-obsidian span.cm-property,
+.cm-s-obsidian span.cm-attribute {
+  color: #79c0ff !important;
+}
+
+.cm-s-obsidian span.cm-meta {
+  color: #c9d1d9 !important;
+}
+
+.cm-s-obsidian span.cm-builtin {
+  color: #a5d6ff !important;
+}
+
+.cm-s-obsidian span.cm-tag {
+  color: #7ee787 !important;
+}
+
+.markdown-preview-view :not(pre)>code {
+  color: #ff7b72;
+  background: #1f2428;
+  padding: 1px 4px !important;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* =========================
+   FILE EXPLORER
+========================= */
+.nav-folder-title,
+.nav-folder-title-content {
+  font-weight: 700 !important;
+}
+
+.nav-file-title-content {
+  font-weight: normal !important;
+}
+
+.nav-folder:has(> .nav-folder-title[data-path="Cyber Security"]) {
+  --tree-color: #79c0ff;
+  /* Light blue for dark mode */
+}
+
+.nav-folder:has(> .nav-folder-title[data-path="Information Technology"]) {
+  --tree-color: #7ee787;
+  /* Light green for dark mode */
+}
+
+.nav-folder:has(> .nav-folder-title[data-path="Cyber Security"]) .nav-folder-title,
+.nav-folder:has(> .nav-folder-title[data-path="Cyber Security"]) .nav-file-title,
+.nav-folder:has(> .nav-folder-title[data-path="Cyber Security"]) .nav-folder-collapse-indicator,
+
+.nav-folder:has(> .nav-folder-title[data-path="Information Technology"]) .nav-folder-title,
+.nav-folder:has(> .nav-folder-title[data-path="Information Technology"]) .nav-file-title,
+.nav-folder:has(> .nav-folder-title[data-path="Information Technology"]) .nav-folder-collapse-indicator {
+  color: var(--tree-color) !important;
+}
+
+/* =========================
+   DEPTH OPACITY
+========================= */
+.nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title {
+  opacity: 1 !important;
+}
+
+.nav-folder .nav-folder .nav-folder-title,
+.nav-folder .nav-folder .nav-file-title {
+  opacity: 0.85 !important;
+}
+
+.nav-folder .nav-folder .nav-folder .nav-folder-title,
+.nav-folder .nav-folder .nav-folder .nav-file-title {
+  opacity: 0.70 !important;
+}
+
+.nav-folder .nav-folder .nav-folder .nav-folder .nav-folder-title,
+.nav-folder .nav-folder .nav-folder .nav-folder .nav-file-title {
+  opacity: 0.55 !important;
+}
+
+.nav-folder .nav-folder .nav-folder .nav-folder .nav-folder .nav-folder-title,
+.nav-folder .nav-folder .nav-folder .nav-folder .nav-folder .nav-file-title {
+  opacity: 0.40 !important;
+}
+
+/* =========================
+   TREE HOVER
+========================= */
+.nav-folder-title-content,
+.nav-file-title-content {
+  transition: transform 0.2s ease !important;
+}
+
+.nav-folder-title:hover .nav-folder-title-content,
+.nav-file-title:hover .nav-file-title-content {
+  transform: translateX(6px) !important;
+}
+
+.nav-folder-title:hover,
+.nav-file-title:hover {
+  opacity: 1 !important;
+}
