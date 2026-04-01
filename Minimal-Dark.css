@@ -341,12 +341,12 @@
   text-align: center;
 }
 
-/* Enlarge seamlessly on hover */
+/* Lift seamlessly on hover */
 .markdown-preview-view .image-embed img:hover {
-  transform: scale(1.4);
+  transform: translateY(-2px) scale(1.01);
   z-index: 999;
   position: relative;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* Mermaid */
@@ -358,14 +358,14 @@
   border-radius: 10px;
 }
 
-/* Enlarge seamlessly on hover */
+/* Lift seamlessly on hover */
 .markdown-preview-view .mermaid:hover {
-  transform: scale(1.4);
+  transform: translateY(-2px) scale(1.01);
   z-index: 999;
   position: relative;
   background-color: #1a1b1e;
   /* Dark mode friendly overlay bg for diagrams */
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* IMPORTANT: don't mess with svg display */
